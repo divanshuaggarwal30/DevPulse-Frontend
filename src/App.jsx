@@ -20,3 +20,13 @@ function App() {
 }
 
 export default App;
+import { Analytics } from "@vercel/analytics/react"
+
+function App() {
+  return (
+    <div className="min-h-screen bg-gray-900 font-sans">
+      {/* ... your existing code ... */}
+      <Analytics />
+    </div>
+  );
+}
