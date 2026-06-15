@@ -1,4 +1,5 @@
 import React from 'react';
+import { Analytics } from '@vercel/analytics/react';
 // Explicitly adding .jsx to force Vite to find it
 import Dashboard from './components/Dashboard.jsx'; 
 
@@ -15,18 +16,9 @@ function App() {
       <main>
         <Dashboard />
       </main>
+      <Analytics />
     </div>
   );
 }
 
 export default App;
-import { Analytics } from "@vercel/analytics/react"
-
-function App() {
-  return (
-    <div className="min-h-screen bg-gray-900 font-sans">
-      {/* ... your existing code ... */}
-      <Analytics />
-    </div>
-  );
-}
