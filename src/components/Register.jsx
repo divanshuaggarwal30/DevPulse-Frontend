@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // 1. Added the router import
 
 const Register = () => {
+  const navigate = useNavigate(); // 2. Initialized the navigator
+  
   const [formData, setFormData] = useState({
     fullName: '',
     emailAddress: '',
@@ -35,7 +38,6 @@ const Register = () => {
         password: formData.password
       };
 
-      // Hitting your live cloud server!
       const response = await fetch('https://devpulse-api-azzy.onrender.com/api/users/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -48,13 +50,15 @@ const Register = () => {
         throw new Error(data.message || 'Server rejected the registration');
       }
 
-      alert("Registration Successful! Check MongoDB Atlas.");
       console.log("Secure JWT Token:", data.token);
       
       // Clear the form on success
       setFormData({
         fullName: '', emailAddress: '', company: '', role: '', password: '', confirmPassword: ''
       });
+
+      // 3. TELEPORT TO LOGIN!
+      navigate('/login'); 
 
     } catch (error) {
       console.error("Registration failed:", error.message);
