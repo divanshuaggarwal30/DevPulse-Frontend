@@ -1,6 +1,6 @@
 import React from 'react';
 import Dashboard from './components/Dashboard.jsx'; 
-import Register from './components/Register.jsx'; // <-- 1. Import the new form
+import Register from './components/Register.jsx';
 import { Analytics } from "@vercel/analytics/react";
 
 function App() {
